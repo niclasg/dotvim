@@ -1,9 +1,14 @@
 " Start without the toolbar
 set guioptions-=T
 
-" Default gui color scheme
-color molokai
+" Hide Menubar
+set guioptions-=m
 
-" Command-][ to increase/decrease indentation
-vmap <D-]> >gv
-vmap <D-[> <gv
+" Scrollbars
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+" Font
+set guifont=Consolas:h10:b
+
+

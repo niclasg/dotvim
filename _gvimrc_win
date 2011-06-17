@@ -1,0 +1,9 @@
+" Start without the toolbar
+set guioptions-=T
+
+" Default gui color scheme
+color molokai
+
+" Command-][ to increase/decrease indentation
+vmap <D-]> >gv
+vmap <D-[> <gv

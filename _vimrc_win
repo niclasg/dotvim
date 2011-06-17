@@ -60,6 +60,15 @@ set modelines=10
 color solarized
 set background=dark
 
+" Backups
+set backupdir=C:\\Progra~2\\Vim\\vim73\\tmp\\backup\\
+" backups
+set directory=C:\\Progra~2\\Vim\\vim73\\tmp\\swap\\
+
+
+" Remap leader
+let mapleader = ","
+
 " Show (partial) command in the status line
 set showcmd
 

@@ -9,7 +9,8 @@ Create a symbolic links from.
 
 Clone submodules
 
-  git submodule init
-  git submodule update
+  `git submodule init`
+
+  `git submodule update`
 
 Done!

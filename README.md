@@ -14,9 +14,9 @@ My vim config, should work on Linux, OSX and Windows.
      $ git clone http://github.com/niclasg/dotvim.git ~/.vim/
      ```
 
-3. Install plugins
-Launch `vim`, run `:BundleInstall`. 
+3. Create a symbolic links
 
-4. Create a symbolic links
+4. Install plugins
+Launch `vim`, run `:BundleInstall`. 
 
 Done!

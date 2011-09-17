@@ -126,4 +126,12 @@ function! InsertStatuslineColor(mode)
   else
     hi StatColor guibg=red ctermbg=red
   endif
-endfunction 
+endfunction
+
+if has("gui_running")
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=L
+  set guioptions-=r
+endif
+

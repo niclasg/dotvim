@@ -97,3 +97,12 @@ if has("gui_running")
   set guioptions-=r
 endif
 
+if has("gui_win32")
+  set guifont=Consolas:h10:b
+endif
+
+if has("gui_macvim")
+  set guifont=Monaco\ for\ Powerline
+  let g:Powerline_symbols = 'fancy'
+endif
+

@@ -13,14 +13,12 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'ervandew/supertab'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wycats/nerdtree'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'SirVer/ultisnips'
+Bundle 'kien/ctrlp.vim'
 "
 
 filetype plugin indent on
@@ -56,11 +54,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " Status bar
 set laststatus=2
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
@@ -76,10 +69,6 @@ vmap <C-Down> ]egv
 set modeline
 set modelines=10
 
-" Default color scheme
-color solarized
-set background=dark
-
 " Remap leader
 let mapleader = ","
 
@@ -90,19 +79,32 @@ map <Leader>n :NERDTreeToggle<CR>
 " Show (partial) command in the status line
 set showcmd
 
+" terminal vim
+if !has("gui_running")
+  set term=screen-256color
+  color smyck
+endif
+
+" gvim
 if has("gui_running")
   set guioptions-=m
   set guioptions-=T
   set guioptions-=L
   set guioptions-=r
+  color solarized
+  set background=dark
 endif
 
+" windows
 if has("gui_win32")
   set guifont=Consolas:h10:b
 endif
 
+" mac
 if has("gui_macvim")
-  set guifont=Monaco\ for\ Powerline
-  let g:Powerline_symbols = 'fancy'
+  set guifont=Monaco
 endif
 
+" *nix
+if has("unix")
+endif

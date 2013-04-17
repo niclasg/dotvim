@@ -1,110 +1,119 @@
-set nocompatible
-filetype off
+" niclasg vim config - https://github.com/niclasg/dotvim
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" General "{{{
+  set nocompatible  " disable vi compatibility.
+  set history=256  " number of things to remember in history.
+  set timeoutlen=250  " decrese delay on esc
 
-" Vundle
-Bundle 'gmarik/vundle'
-"
-" Bundles
-"
-" github repos
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'ervandew/supertab'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'wycats/nerdtree'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'SirVer/ultisnips'
-Bundle 'kien/ctrlp.vim'
-"
+  set nowritebackup  " disable backup
+  set nobackup  " disable backup
 
-filetype plugin indent on
-syntax on
+  set hlsearch  " highlight search
+  set incsearch " incremental search
+  set ignorecase  " ignore case
+  set smartcase  " unless uppercase in search
 
-set number
-set ruler
+  set modeline  " enable modeline
+  set modelines=10  " default number of lines to read for modeline instructions
+" "}}}
 
-" Set encoding
-set encoding=utf-8
 
-" Whitespace stuff
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set list listchars=tab:\ \ ,trail:·
+" Formatting "{{{
+  syntax on  " enable syntax
+  filetype plugin indent on  " load the plugin and indent settings for the detected filetype
+  set encoding=utf-8  " set default to utf-8
 
-" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+  set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+  set nowrap   " no wraps please
+  set wildmode=list:longest,list:full  " tab-complete longest common and show rest as list
+  set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*  " tab-complete ignore
 
-" Tab completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+  set tabstop=2  " default tabstop
+  set softtabstop=2  " default softtabstop
+  set shiftwidth=2  " default shiftwidth for indents
+  set expandtab  " make tabs into spaces
+  set smarttab " smart tab levels
+" "}}}
 
-" Status bar
-set laststatus=2
 
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
+" Visual "{{{
+  set ruler  " display ruler
+  set number  " display linenumbers
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+  set laststatus=2  " always show status lune
+  set list listchars=tab:\ \ ,trail:· " unprintable chars mapping
+  set showcmd  " show partial command in status line
 
-" Use modeline overrides
-set modeline
-set modelines=10
+  if has("gui_running")  " if running gvim
+    set guioptions-=m  " remove menu bar
+    set guioptions-=T  " remove toolbar
+    set guioptions-=L  " remove left-hand scrollbar
+    set guioptions-=r  " remove right-hand scrollbar
+  else  " terminal vim
+    set term=screen-256color  " set terminal
+  endif
+" "}}}
 
-" Remap leader
-let mapleader = ","
 
-" NERDTree configuration
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
+" Key mappings " {{{
+  let mapleader = ","  " remap leader
 
-" Show (partial) command in the status line
-set showcmd
+  nmap <C-Up> ddkP  " bubble single line up
+  nmap <C-Down> ddp  " bubble single line down
+  vmap <C-Up> xkP`[V`]  " bubble multiple lines up
+  vmap <C-Down> xp`[V`]  " bubble multiple lines down
 
-" terminal vim
-if !has("gui_running")
-  set term=screen-256color
-  color smyck
-endif
+  map <Leader>n :NERDTreeToggle<CR>
+" "}}}
 
-" gvim
-if has("gui_running")
-  set guioptions-=m
-  set guioptions-=T
-  set guioptions-=L
-  set guioptions-=r
-  color solarized
-  set background=dark
-endif
 
-" windows
-if has("gui_win32")
-  set guifont=Consolas:h10:b
-endif
+" Plugins " {{{
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
 
-" mac
-if has("gui_macvim")
-  set guifont=Monaco
-endif
+  Bundle 'gmarik/vundle'
 
-" *nix
-if has("unix")
-endif
+  " Snippets
+  Bundle 'SirVer/ultisnips'
+
+  " Git integration
+  Bundle 'tpope/vim-fugitive'
+
+  " Utility
+  Bundle 'tpope/vim-surround'
+  Bundle 'ervandew/supertab'
+  Bundle 'Lokaltog/vim-powerline'
+  Bundle 'kien/ctrlp.vim'
+  Bundle 'ddollar/nerdcommenter'
+
+  " Color themes
+  Bundle 'altercation/vim-colors-solarized'
+
+  " NERDTree
+  Bundle 'wycats/nerdtree'
+  let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+
+" " }}}
+
+
+" Colors and Fonts " {{{
+  if has("gui_running")  " if running gvim
+    color solarized  " set colorscheme for gvim
+    set background=dark  " set light/dark
+  else  " terminal vim
+    color smyck  " set colorscheme for vim
+  endif
+
+  if has("gui_win32")  " windows
+    set guifont=Consolas:h10:b  " font
+  endif
+
+  if has("gui_macvim")  " mac
+    set guifont=Monaco  " font
+  endif
+
+  if has("unix")  "*nix
+    set guifont=Ubuntu\ Mono  " font
+  endif
+" " }}}

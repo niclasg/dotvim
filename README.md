@@ -1,6 +1,3 @@
-## About
-My vim config, should work on Linux, OSX and Windows.
-
 ## Installation
 1. Clone this repository
 
@@ -13,11 +10,11 @@ My vim config, should work on Linux, OSX and Windows.
      ```
      $ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
      ```
-     
+
 3. Create symbolic link to .vim/_vimrc
 
-4. Launch vim and run `:BundleInstall`
+4. Copy colors/smyck.vim to your vim colors folder
 
-Done!
+5. Launch vim and run `:BundleInstall`
 
-Note that the UltiSnips plugin used requires vim to have been compiled with python support.
+Requires vim to be compiled with python support and python2.6+ installed

@@ -33,7 +33,7 @@
   set softtabstop=2  " default softtabstop
   set shiftwidth=2  " default shiftwidth for indents
   set expandtab  " make tabs into spaces
-  set smarttab " smart tab levels
+  set smarttab  " smart tab levels
 " "}}}
 
 
@@ -42,7 +42,7 @@
   set number  " display linenumbers
 
   set laststatus=2  " always show status lune
-  set list listchars=tab:\ \ ,trail:· " unprintable chars mapping
+  set list listchars=tab:\ \ ,trail:·  " unprintable chars mapping
   set showcmd  " show partial command in status line
 
   if has("gui_running")  " if running gvim

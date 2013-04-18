@@ -11,7 +11,7 @@
      $ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
      ```
 
-3. Create symbolic link to .vim/_vimrc
+3. Create symbolic link to .vim/vimrc
 
 4. Copy colors/smyck.vim to your vim colors folder
 

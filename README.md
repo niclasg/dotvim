@@ -13,7 +13,7 @@
 
 3. Create symbolic link to .vim/vimrc
 
-4. Copy colors/smyck.vim to your vim colors folder
+4. Copy colors/*.vim to your vim colors folder
 
 5. Launch vim and run `:BundleInstall`
 
